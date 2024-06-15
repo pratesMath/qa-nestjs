@@ -51,9 +51,9 @@ nest g controller app/customer_proposals
 nest g service app/customer_proposals
 
 # Gerando módulo de resultado da simulação
-nest g module app/result_simulation
-nest g controller app/result_simulation
-nest g service app/result_simulation
+nest g module app/result_simulations
+nest g controller app/result_simulations
+nest g service app/result_simulations
 ```
 
 <h3>Padrão utilizado nos testes</h3>
@@ -63,7 +63,18 @@ nest g service app/result_simulation
 <h3>Regras (criadas) para simulação</h3>
 
 - O "valor a financiar" da proposta não pode ser superior a 70% do "valor do imóvel";
-- A soma do prazo do financiamento com a idade do proponente mais velho não poderá ser superior a 80 anos e 6 meses.
+- A soma do prazo do financiamento com a idade do proponente mais velho não poderá ser superior a 80 anos e 6 meses;
+- "Valor de entrada" é resultado da subtração de "valor do imóvel" por "valor a financiar";
+  ```
+  valor de entrada = valor do imóvel - valor a financiar
+  ```
+- Fórmula (criada) para calcular valor da primeira parcela:
+
+  ```
+  p1 = (tf / (pa * 12)) * 3.5
+
+  onde: p1 = primeira parcela, tf = valor total do financiamento, pa = prazo em anos
+  ```
 
 <h3>Modelo Relacional (PostgreSQL)</h3>
 
