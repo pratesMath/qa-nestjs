@@ -1,0 +1,30 @@
+### Cadastrar proposta do cliente
+POST http://localhost:4090/api/v1/customer-proposals/fbf4b76e-4da4-4e1b-ba71-e181b04a9b2d/new
+Content-Type: application/json
+
+{
+  "customerGoal": "Financiamento de Imóvel",
+  "propertyType": "Residencial",
+  "periodIntendPurchase": "EM ATÉ 3 MESES",
+  "propertyLocation": "SP",
+  "propertyValue": 300000,
+  "amountFinance": 120000,
+  "termYears": 35,
+  "statusITBI": "Y"
+}
+
+### Cadastrar proposta do cliente
+### (testando cenário onde o valor a financiar é superior a 70% do valor do imóvel)
+POST http://localhost:4090/api/v1/customer-proposals/fbf4b76e-4da4-4e1b-ba71-e181b04a9b2d/new
+Content-Type: application/json
+
+{
+  "customerGoal": "Financiamento de Imóvel",
+  "propertyType": "Residencial",
+  "periodIntendPurchase": "EM ATÉ 3 MESES",
+  "propertyLocation": "SP",
+  "propertyValue": 300000,
+  "amountFinance": 210001,
+  "termYears": 35,
+  "statusITBI": "Y"
+}
